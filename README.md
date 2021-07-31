@@ -1,0 +1,1 @@
+This is a basic version of an etch-a-sketch built in Javascript to practice interacting with the DOM.
