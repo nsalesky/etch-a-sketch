@@ -1,0 +1,13 @@
+#grid-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    /* width: 960;
+    height: 960; */
+}
+
+.tile {
+    background-color: red;
+    margin: 0;
+    border: 0;
+}
