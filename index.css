@@ -14,8 +14,11 @@ body {
     border: 10px solid rgb(88, 88, 88);
 }
 
+#menu-container {
+    display: flex;
+}
+
 .tile {
-    background-color: black;
     margin: 0;
     border: 0;
 }

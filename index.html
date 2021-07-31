@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="./index.css">
     <script src="./index.js" defer></script>
 
     <title>Etch-a-Sketch</title>
 </head>
+
 <body>
     <div id="grid-container">
 
     </div>
 
-    <button id="reset-grid-button">Reset</button>
+    <div id="menu-container">
+        <button id="reset-grid-button">Reset</button>
+
+        <select id="paint-type">
+            <option value="absolute" selected>Absolute Paint</option>
+            <option value="additive">Additive Paint</option>
+        </select>
+    </div>
 
 </body>
 
