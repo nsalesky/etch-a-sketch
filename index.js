@@ -1,9 +1,5 @@
 const gridContainer = document.querySelector("#grid-container");
 
-// the overall width/height of the entire grid
-const GRID_WIDTH = 500;
-const GRID_HEIGHT = 500;
-
 // Finds the nearest multiple of the given factor below the given starting number.
 // Num must be greater than 0, and factor must be within the range [1, num]
 function findFlooredMultiple(num, factor) {
@@ -35,8 +31,8 @@ function resetGrid(numRows, numColumns) {
 
     clearGrid();
 
-    let gridWidth = findFlooredMultiple(screen.availWidth * (2/3), numColumns);
-    let gridHeight = findFlooredMultiple(screen.availHeight * (2/3), numRows);
+    let gridWidth = findFlooredMultiple(window.innerWidth * (2/3), numColumns);
+    let gridHeight = findFlooredMultiple(window.innerHeight * (2/3), numRows);
 
     gridContainer.style.width = `${gridWidth}px`;
     gridContainer.style.height = `${gridHeight}px`;
@@ -51,15 +47,48 @@ function resetGrid(numRows, numColumns) {
             tile.style.width = `${tileWidth}px`;
             tile.style.height = `${tileHeight}px`;
 
+            tile.addEventListener("mouseenter", handleTileHover);
+
             gridContainer.appendChild(tile);
         }
     }
+}
 
+// Sets the tile's color to white when the user hovers over it with their cursor
+function handleTileHover(e) {
+    e.target.style.backgroundColor = "white";
+}
+
+// Prompts the user to enter a new grid size, and then resets the grid to a blank
+// grid of that size
+function resetGridHandler(e) {
+    let size = promptSize();
+
+    resetGrid(size, size);
+}
+
+// Continues to prompt the user for a grid size until they enter a valid size
+function promptSize() {
+    while (true) {
+        let newSize = Number.parseInt(
+            window.prompt("Please enter a new number of tiles per side for the grid"));
+
+        if (Number.isNaN(newSize)) {
+            continue;
+        }
+
+        if (newSize <= 0) {
+            continue;
+        }
+
+        return newSize;
+    }
 }
 
 // Sets up the default state of the grid, and also connects event handlers
 function init() {
     resetGrid(16, 16);
+    document.querySelector("#reset-grid-button").addEventListener("click", resetGridHandler);
 }
 
 init();
