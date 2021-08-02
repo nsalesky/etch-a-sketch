@@ -7,7 +7,7 @@ This is a simple etch-a-sketch application that allows you to draw pictures in a
 **Usage**
 ---------
 Just load up the ```index.html``` page and start drawing!
-Alternatively, you can check out nsalesky.github.io/etch-a-sketch!
+Alternatively, you can check out [nsalesky.github.io/etch-a-sketch](https://nsalesky.github.io/etch-a-sketch/)!
 
 **Future Expansion**
 --------------------
